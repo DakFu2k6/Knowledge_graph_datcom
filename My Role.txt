@@ -1,0 +1,44 @@
+﻿Chào Được, với vai trò là AI R&D & Data Specialist trong dự án xây dựng luồng MVP Knowledge Graph tuyển dụng, công việc của bạn mang tính chất cốt lõi về xử lý dữ liệu và đánh giá mô hình.
+Dưới đây là chi tiết toàn bộ công việc bạn cần thực hiện, được chia theo từng tuần và các yêu cầu chung:
+🌟 Yêu cầu chung (Hàng tuần)
+Báo cáo tiến độ độc lập vào lúc 20:00 ngày Thứ 7 hàng tuần qua hệ thống quản lý chung. Mỗi báo cáo bắt buộc phải có các mục sau:
+* Link thư mục chứa kết quả thực tế (file mã nguồn, dữ liệu...).
+* File báo cáo tóm tắt nội dung (Literature Review) từ các Paper/tài liệu bắt buộc và phần bạn tự mở rộng tìm tòi.
+* Các điểm nghẽn kỹ thuật (Blockers) phát sinh cần hỗ trợ.
+* Các đầu việc cụ thể sẽ làm trong tuần kế tiếp.
+________________
+
+
+📅 Tuần 1: Nghiên cứu, trích xuất quan hệ & xử lý dữ liệu nền tảng
+Mục tiêu chính của bạn trong tuần này là bóc tách cấu trúc phân cấp kỹ năng ESCO và dùng Pandas để lọc các cặp thực thể đồng xuất hiện.
+* Nghiên cứu tài liệu (Paper R&D): Đọc các bài báo/tài liệu về chuẩn hóa danh pháp thực thể (Entity Alignment). Đồng thời, bạn phải chủ động tìm kiếm thêm nghiên cứu về việc tích hợp tri thức phân cấp vào hệ thống xử lý dữ liệu.
+* Xử lý dữ liệu nền tảng:
+   * Từ điển ESCO: Xử lý bằng Python để trích xuất mối quan hệ phân cấp từ dữ liệu ESCO gốc, xuất ra file bảng để chuẩn bị cho tập dữ liệu cạnh IS_A_SUBSKILL_OF.
+   * Khai phá quan hệ bổ trợ (COMPLIMENT): Dùng thư viện Pandas viết script đếm tần suất các cặp kỹ năng xuất hiện cùng nhau trong tin tuyển dụng (từ tập dữ liệu Job do Leader cung cấp). Xếp hạng tần suất giảm dần để tạo nguồn dữ liệu cho cạnh COMPLIMENT.
+   * Thử nghiệm lọc trùng thô: Viết script dùng thư viện thefuzz chạy thử trên một tập mẫu nhỏ để đồng bộ, xử lý các ký tự viết lỗi thô.
+* Đầu ra bắt buộc nộp: File báo cáo tóm tắt Paper tuần 1 + Script Python xử lý ESCO và đếm tần suất đồng xuất hiện + File dữ liệu trung gian dạng CSV chứa các cặp kỹ năng bổ trợ.
+________________
+
+
+📅 Tuần 2: Đánh giá Embedding & Hoàn thiện lọc trùng
+Trọng tâm cốt lõi của tuần này là đánh giá định lượng mô hình Embedding với tập dữ liệu Hard Negative.
+* Nghiên cứu tài liệu (Paper R&D): Đọc về các kỹ thuật đánh giá mô hình Embedding (Evaluation Frameworks) và xử lý lỗi ngữ nghĩa khó. Tự nghiên cứu thêm các case-study thực tế về "Hard Negative" trong lĩnh vực tìm kiếm.
+* Đánh giá Embedding (Nhiệm vụ trọng tâm):
+   * Sử dụng tập dữ liệu kiểm thử (Evaluation Dataset) có sẵn.
+   * Viết script truyền các cặp câu khó (Hard Negatives) vào mô hình Embedding hiện tại.
+   * Tính toán khoảng cách Cosine Similarity và lập thống kê chi tiết tỷ lệ mô hình bị lỗi ngữ nghĩa.
+   * Viết báo cáo đánh giá chuyên sâu để kết luận định lượng: Có cần thiết phải fine-tuning mô hình Embedding hiện tại hay không?.
+* Hoàn thiện lọc trùng: Cập nhật và hoàn thiện module lọc trùng ký tự cơ bản bằng Fuzzy Matching để làm sạch danh pháp kỹ năng thô.
+* Đầu ra bắt buộc nộp: File báo cáo tóm tắt Paper tuần 2 + File tài liệu báo cáo chuyên sâu (PDF/Markdown) đánh giá chi tiết Hard Negative và kết luận về Fine-tuning Embedding + Thư mục mã nguồn script lọc trùng ký tự.
+________________
+
+
+📅 Tuần 3: Đóng gói module kỹ thuật
+Mục tiêu là hoàn thiện và đóng gói các cấu phần mã nguồn làm sạch dữ liệu của bạn để bàn giao.
+* Nghiên cứu tài liệu (Paper R&D): Đọc tài liệu về bảo trì dữ liệu và tiến hóa đồ thị. Tự tìm kiếm thêm các giải pháp tối ưu để cập nhật từ điển tĩnh.
+* Đóng gói module kỹ thuật:
+   * Tối ưu hóa và dọn dẹp các đoạn mã xử lý lọc trùng ký tự cũng như script bóc tách ESCO.
+   * Đưa tất cả về thành các hàm Python (def) chuẩn hóa, rõ ràng.
+   * Viết file hướng dẫn ngắn (README.md) mô tả chi tiết cách chạy độc lập module làm sạch này.
+* Đầu ra bắt buộc nộp: File báo cáo tóm tắt Paper tuần 3 + Thư mục mã nguồn đóng gói module làm sạch dữ liệu hoàn chỉnh kèm file README.md.
+Bạn lưu ý, dự án đang áp dụng nguyên tắc tối giản (hạ cấp kỹ thuật) do áp lực thời gian. Hãy tập trung làm thật gọn gàng, chuẩn xác các luồng script Python xử lý dữ liệu để các thành viên khác (Tuấn Anh và Dương) có thể nhận file CSV từ bạn và nạp lên Neo4j được trơn tru nhé.
